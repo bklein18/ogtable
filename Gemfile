@@ -21,6 +21,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use coveralls for code coverage
 gem 'coveralls', require: false
 
+# Add in gem for integration testing
+gem 'rails-controller-testing'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
