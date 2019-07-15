@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 # Add in Bootstrap
 gem 'bootstrap-sass'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
