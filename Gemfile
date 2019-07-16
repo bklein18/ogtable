@@ -7,8 +7,12 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 # Add in password encryption
 gem 'bcrypt', '3.1.12'
+# Add in faker for mock user data
+gem 'faker'
 # Add in Bootstrap
 gem 'bootstrap-sass'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
