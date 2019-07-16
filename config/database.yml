@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production
+  database: ogtable_production
+  username: ogtable
+  password: <%= ENV['OGTABLE_DATABASE_PASSWORD'] %>
