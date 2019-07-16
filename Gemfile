@@ -20,6 +20,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+# getting jquery stuff
+gem 'jquery-rails'
+
 # Use coveralls for code coverage
 gem 'coveralls', require: false
 
