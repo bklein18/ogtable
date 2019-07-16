@@ -1,0 +1,6 @@
+<% provide(:title, @user.name) %>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
+<p>Joined: <%= @user.created_at.month %>/<%= @user.created_at.day %>/<%= @user.created_at.year %>
