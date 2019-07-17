@@ -9,4 +9,13 @@
             <p>Joined: <%= @user.created_at.month %>/<%= @user.created_at.day %>/<%= @user.created_at.year %>
         </section>
     </aside>
+    <div class="col-md-8">
+        <% if @user.games.any? %>
+            <h3>Games (<%= @user.games.count %>)</h3>
+            <ol class="games">
+                <%= render @games %>
+            </ol>
+            <%= will_paginate @games %>
+        <% end %>
+    </div>
 </div>

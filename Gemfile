@@ -30,6 +30,8 @@ gem 'jquery-rails'
 # Use coveralls for code coverage
 gem 'coveralls', require: false
 
+gem 'acts_as_votable', '~> 0.12.0'
+
 # Add in gem for integration testing
 gem 'rails-controller-testing'
 

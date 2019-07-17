@@ -1,0 +1,8 @@
+<li id="game-<%= game.id %>">
+  <%= link_to gravatar_for(game.user, size: 50), game.user %>
+  <span class="gamename"><%= game.name %></span>
+  <span class="description"><%= game.description %></span>
+  <span class="user">Owned by <%= link_to game.user.name, game.user %><% if current_user?(game.user) %>
+      (<%= link_to "delete", game, method: :delete, data: { confirm: "You sure?" } %>)
+    <% end %></span>
+</li>

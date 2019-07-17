@@ -17,3 +17,9 @@ User.create!(name:  name,
       activated: true,
       activated_at: Time.zone.now )
 end
+users = User.order(:created_at).take(6)
+50.times do
+  name = Faker::Lorem.sentence(1)
+  description = Faker::Lorem.sentence(5)
+  users.each { |user| user.games.create!(name: name, description: description) }
+end

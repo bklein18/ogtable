@@ -2,6 +2,7 @@ class User < ApplicationRecord
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
     before_create :create_activation_digest
+    has_many :games, dependent: :destroy 
 
     before_save { email.downcase! }
     validates :name,  presence: true, length: { maximum: 50 }
@@ -64,6 +65,10 @@ class User < ApplicationRecord
 
     def password_reset_expired?
         reset_sent_at < 2.hours.ago
+    end
+
+    def feed
+        Game.where("user_id = ?", id)
     end
 
     private
