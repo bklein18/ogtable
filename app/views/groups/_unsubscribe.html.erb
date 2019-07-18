@@ -1,4 +1,4 @@
-<%= form_for(current_user.active_relationships.find_by(group_id: @group.id),
+<%= form_for(GroupMembership.find_by(user_id: current_user.id, group_id: @group.id),
              html: { method: :delete },
              remote: true) do |f| %>
   <%= f.submit "Unsubscribe", class: "btn" %>

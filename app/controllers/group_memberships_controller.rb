@@ -4,18 +4,13 @@ class GroupMembershipsController < ApplicationController
     def create
         group = Group.find(params[:group_id])
         current_user.subscribe(group)
-        respond_to do |format|
-            format.html { redirect_to @group }
-            format.js
-        end
+        redirect_to group
     end
 
     def destroy
-        group = GroupMembership.find(params[:id]).groups
+        group_id = GroupMembership.find(params[:id]).group_id
+        group = Group.find_by(id: group_id)
         current_user.unsubscribe(group)
-        respond_to do |format|
-            format.html { redirect_to @group }
-            format.js
-        end
+        redirect_to group
     end
 end

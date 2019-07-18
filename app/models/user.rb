@@ -85,7 +85,7 @@ class User < ApplicationRecord
     end
 
     def subscribed?(group)
-        groups.include?(id: group.id)
+        groups.include?(Group.find_by(id: group.id))
     end
 
     private
