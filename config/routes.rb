@@ -11,8 +11,14 @@ Rails.application.routes.draw do
   get    '/login'   =>     'sessions#new'
   post   '/login'   =>     'sessions#create'
   delete '/logout'  =>     'sessions#destroy'
-  resources :users
+  resources :users do
+    get :groups, on: :member
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :games, only: [:create, :destroy]
+  resources :group_memberships, only: [:create, :destroy]
+  resources :groups do
+    get :users, on: :member
+  end
 end

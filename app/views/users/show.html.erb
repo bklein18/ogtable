@@ -8,6 +8,9 @@
             </h1>
             <p>Joined: <%= @user.created_at.month %>/<%= @user.created_at.day %>/<%= @user.created_at.year %>
         </section>
+        <section class="stats">
+            <%= render 'shared/stats' %>
+        </section>
     </aside>
     <div class="col-md-8">
         <% if @user.games.any? %>

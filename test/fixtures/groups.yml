@@ -1,0 +1,5 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+trulia:
+  name: "trulia_gaming"
+  description: "Gaming group in the Zillow San Francisco office"

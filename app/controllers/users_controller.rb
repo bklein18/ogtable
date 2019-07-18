@@ -48,6 +48,13 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def groups
+    @title = "Groups"
+    @user = User.find(params[:id])
+    @groups = @user.groups.paginate(page:params[:page])
+    render 'show_groups'
+  end
+
   private
 
     def user_params

@@ -1,0 +1,9 @@
+<% @group %>
+<div class="stats">
+    <a href="<%= users_group_path(@group) %>">
+        <strong id="subscribers" class="stat">
+            <%= @group.users.count %>
+        </strong>
+        subscribers
+    </a>
+</div>

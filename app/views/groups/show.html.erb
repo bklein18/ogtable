@@ -1,0 +1,15 @@
+<%= provide(:title, @group.name) %>
+<div class="row">
+    <aside class="col-md-4">
+        <section class="group info">
+            <h1><%= @group.name %></h1>
+            <p>Created: <%= @group.created_at.month %>/<%= @group.created_at.day %>/<%= @group.created_at.year %>
+        </section>
+        <section class="stats">
+            <%= render 'shared/group_stats' %>
+        </section>
+    </aside>
+    <div class="col-md-8">
+        <%= render 'subscribe_form' %>
+    </div>
+</div>

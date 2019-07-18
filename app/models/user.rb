@@ -2,7 +2,12 @@ class User < ApplicationRecord
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
     before_create :create_activation_digest
-    has_many :games, dependent: :destroy 
+    has_many :games, dependent: :destroy
+    has_many :group_memberships, dependent: :destroy
+    has_many :active_relationships, class_name: "GroupMembership",
+                                    foreign_key: "group_id",
+                                    dependent: :destroy
+    has_many :groups, through: :group_memberships
 
     before_save { email.downcase! }
     validates :name,  presence: true, length: { maximum: 50 }
@@ -69,6 +74,18 @@ class User < ApplicationRecord
 
     def feed
         Game.where("user_id = ?", id)
+    end
+
+    def subscribe(group)
+        groups << group
+    end
+
+    def unsubscribe(group)
+        groups.delete(group)
+    end
+
+    def subscribed?(group)
+        groups.include?(id: group.id)
     end
 
     private

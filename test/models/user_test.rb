@@ -82,5 +82,18 @@ class UserTest < ActiveSupport::TestCase
     assert_difference 'Game.count', -1 do
       @user.destroy
     end
-  end  
+  end
+
+  test "should subscribe to and and unsubscribe to a group" do
+    user = users(:brady)
+    trulia = groups(:trulia)
+    assert_not user.subscribed?(trulia)
+    assert_not trulia.subscribed?(user)
+    user.subscribe(trulia)
+    assert user.subscribed?(trulia)
+    assert trulia.subscribed?(user)
+    user.unsubscribe(trulia)
+    assert_not user.subscribed?(trulia)
+    assert_not trulia.subscribed?(user)
+  end
 end
