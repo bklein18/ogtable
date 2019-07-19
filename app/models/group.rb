@@ -4,6 +4,7 @@ class Group < ApplicationRecord
                                     foreign_key: "user_id",
                                     dependent: :destroy
     has_many :users, through: :group_memberships
+    has_many :posts, dependent: :destroy
 
     def subscribers
         users

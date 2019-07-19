@@ -8,8 +8,18 @@
         <section class="stats">
             <%= render 'shared/group_stats' %>
         </section>
+        <section class="post_form">
+            <%= render 'shared/post_form', :group => @group %>
+        </section>
     </aside>
     <div class="col-md-8">
         <%= render 'subscribe_form' %>
+        <% if @group.posts.any? %>
+        <h3>Posts (<%= @group.posts.count %>)</h3>
+        <ol class="posts">
+            <%= render @posts %>
+        </ol>
+        <%= will_paginate @posts %>
+        <% end %>
     </div>
 </div>

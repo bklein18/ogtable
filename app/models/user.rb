@@ -8,6 +8,7 @@ class User < ApplicationRecord
                                     foreign_key: "group_id",
                                     dependent: :destroy
     has_many :groups, through: :group_memberships
+    has_many :posts, dependent: :destroy
 
     before_save { email.downcase! }
     validates :name,  presence: true, length: { maximum: 50 }

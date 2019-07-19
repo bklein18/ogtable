@@ -76,7 +76,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
 
-  test "associated microposts should be destroyed" do
+  test "associated games should be destroyed" do
     @user.save
     @user.games.create!(name: "Lorem", description: " ipsum")
     assert_difference 'Game.count', -1 do
@@ -87,6 +87,7 @@ class UserTest < ActiveSupport::TestCase
   test "should subscribe to and and unsubscribe to a group" do
     user = users(:brady)
     trulia = groups(:trulia)
+    user.unsubscribe(trulia)
     assert_not user.subscribed?(trulia)
     assert_not trulia.subscribed?(user)
     user.subscribe(trulia)
@@ -95,5 +96,13 @@ class UserTest < ActiveSupport::TestCase
     user.unsubscribe(trulia)
     assert_not user.subscribed?(trulia)
     assert_not trulia.subscribed?(user)
+  end
+
+  test "associated posts should be destroyed" do
+    @user.save
+    @user.posts.create!(content: "Lorem ipsum", group_id: groups(:trulia).id)
+    assert_difference 'Post.count', -1 do
+      @user.destroy
+    end
   end
 end

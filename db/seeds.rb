@@ -41,3 +41,15 @@ users.each do |u|
   groups[rand(10)].users << u
   groups[rand(10) + 10].users << u
 end
+
+# post data
+groups = Group.order(:created_at).take(6)
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  groups.each { |group| 
+    users.each { |user| 
+      group.posts.create!(content: content, user_id: user.id)
+    }
+  }
+end

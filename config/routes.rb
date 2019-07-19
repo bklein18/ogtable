@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :groups do
     get :users, on: :member
   end
+  resources :posts, only: [:create, :destroy]
 end
