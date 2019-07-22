@@ -1,4 +1,4 @@
-# OGTable
+# [OGTable](https://ogtable.bradyklein.com)
 
 OGTable stands for "Open Gaming Table", and is a simple social network for organizing a tabletop gaming group, be it for roleplaying games like Dungeons and Dragons or for board games, like Ticket to Ride, or Risk.
 
